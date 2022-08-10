@@ -1,0 +1,253 @@
+INSERT INTO User(SIN, firstName, lastName, username, Dob, Address, Occupation, password)
+VALUES 
+	(100000000, 'Ali', 'Nada', 'Nada_A', '2002-10-29', '27 Kings College Cir', 'Student', ''),
+	(100000001, 'Nick', 'Koudas', 'KK', '1980-07-08', '1265 Military Trail', 'Professor', ''),
+	(100000002, 'Akshay', 'Bapat', 'AB', '1998-01-17','1266 Military Trail', 'Teaching Assistant', ''),
+	(100000003, 'Andi', 'Bergen', 'A_B', '1991-03-19', '3359 Mississauga Rd', 'Professor', ''),
+	(100000004, 'Andrew', 'Petersen', 'AP', '1985-05-30', '3360 Mississauga Rd', 'Professor', ''),
+	(100000005, 'Bill', 'Gates', 'BG', '1970-12-31', '1000 Uoft Blvd', 'CEO', ''),
+	(100000006, 'Sundar', 'Pichai', 'SP', '1980-09-09', 'IIT Delhi Main Rd', 'Entrepreneur', ''),
+	(100000007, 'Leet', 'Code', 'LC', '2004-02-05', '77 Massachusetts Ave', 'Unemployed', ''),
+	(100000008, 'Daren', 'Chao', 'DC', '2000-11-22', '1267 Military Trail', 'Teaching Assistant', ''),
+	(100000009, 'Kevin', 'Chen', 'KC', '2000-07-18', '1268 Military Trail', 'Teaching Assistant', ''),
+	(100000010, 'Dhar', 'Mann', 'DM', '2000-07-18', '79 Massachusetts Ave', 'Influencer', ''),
+	(100000011, 'Bob', 'Marley', 'BM', '2000-07-18', '77 Harvard Blvd', 'Singer', ''),
+	(100000012, 'James', 'Lance', 'JL', '2000-07-18', '97 Harvard Blvd', 'Athlete', ''),
+	(100000013, 'Josh', 'Greenwood', 'JG', '2000-07-18', 'AWS Delhi Main Rd', 'Mechanical Engineer', ''),
+	(100000014, 'Daniel', 'Wu', 'DW', '2000-07-18', '999 Uoft Blvd', 'Surgeon', ''),
+	(100000015, 'Omar', 'Nada', 'ON', '2000-07-18', '1596 Tremaine Rd', 'Student', ''),
+	(100000016, 'Maria', 'Ross', 'MR', '2000-07-18', '924 Tremaine Rd', 'Navy Seal', ''),
+	(100000017, 'Olivier', 'Armstrong', 'OA', '2000-07-18', '1028 Tremaine Rd', 'Software Engineer', ''),
+	(100000018, 'Edward', 'Elric', 'EE', '2000-07-18', '479 Dundas St W', 'Chemist', ''),
+	(100000019, 'Alphonse', 'Elric', 'AE', '2000-07-18', '476 Dundas St W', 'Physicist', ''),
+	(100000020, 'Eren', 'Jaeger','EJ', '2000-07-18', '123 Pringle Ave', 'Psychologist', ''),
+	(100000021, 'Armin', 'Arlert', 'AA', '2000-07-18', '456 Peregrine St', 'Cremator', ''),
+	(100000022, 'Mikasa', 'Ackermann', 'MA', '2000-07-18', '789 Regional Rd', 'Executioner', ''),
+	(100000023, 'Levi', 'Ackermann', 'LA','2000-07-18', '901 LanceBorough Ave', 'Athlete', ''),
+	(100000024, 'Gon', 'Freecs', 'GF', '2000-07-18', '904 Main St E', 'Student', ''),
+	(100000025, 'Mohammed', 'Hussein', 'MH', '2000-07-18', '775 Main St E', 'Surgeon', ''),
+	(100000026, 'Youssef', 'Sherif', 'YS', '2000-07-18', '808 Main St E', 'Dentist', ''),
+	(100000027, 'Christa', 'Lens', 'CL', '2000-07-18', '709 Main St E', 'Model', ''),
+	(100000028, 'Anne', 'Leonhart', 'L_A', '2000-07-18', '304 Main St E', 'Boxer', ''),
+	(100000029, 'Rosa', 'Franks', 'RF', '2000-07-18', '875 Main St E', 'Secretary', '')
+;
+
+INSERT INTO Renter(SIN)
+VALUES
+	(100000000),
+	(100000002),
+	(100000003),
+	(100000004),
+	(100000006),
+	(100000007),
+	(100000008),
+	(100000010),
+	(100000011),
+	(100000012),
+	(100000013),
+	(100000014),
+	(100000020),
+	(100000021),
+	(100000022)
+;
+
+INSERT INTO Host(SIN)
+VALUES
+	(100000001),
+	(100000002),
+	(100000003),
+	(100000005),
+	(100000006),
+	(100000007),
+	(100000009),
+	(100000015),
+	(100000016),
+	(100000017),
+	(100000018),
+	(100000019),
+	(100000023),
+	(100000024),
+	(100000025),
+	(100000026),
+	(100000027),
+	(100000028),
+	(100000029)
+;
+
+INSERT INTO Listing(address, postalCode, city, country, type, latitude, longitude, pricePerNight, host)
+VALUES
+	('1265 Military Trail', 'M1C1A4', 'Scarborough', 'Canada', 'Apartment', 43.7764, -79.2318, 50, 100000001),
+	('1266 Military Trail', 'M1C1A5', 'Scarborough', 'Canada', 'House', 43.7812, -79.2423, 500, 100000001),
+	('1267 Military Trail', 'M1C1A6', 'Scarborough', 'Canada', 'Guest House', -43.6812, 79.2423, 12, 100000001),
+	('908 Military Trail', 'M2C1A5', 'Scarborough', 'Canada', 'Hotel', 43.8812, -79.2423, 1000, 100000003),
+	('808 Military Trail', 'M1D1A5', 'Scarborough', 'Canada', 'Apartment', 43.7912, -79.2123, 23, 100000005),
+	('IIT Delhi Main Rd', 'A1B2C3', 'Delhi', 'India', 'Apartment', 19.1334, 72.9134, 59, 100000005),
+	('1597 Tremaine Rd', 'N1B1C3', 'Scarborough', 'Canada', 'Apartment', 43.8064, -72.9134, 102, 100000006),
+	('1598 Tremaine Rd', 'N1B3C3', 'Scarborough', 'Canada', 'Hotel', 43.7064, -72.9134, 123, 100000007),
+	('1599 Tremaine Rd', 'N2B5C3', 'Scarborough', 'Canada', 'House', 43.7508, -72.9134, 321, 100000009),
+	('901 LanceBorough Ave', 'MK41C3', 'Scarborough', 'Canada', 'Apartment', 43.6564, -72.8134, 102, 100000015),
+	('123 Pringle Ave', 'MK45C3', 'Scarborough', 'Canada', 'Guest House', 43.6864, -73.0134, 123, 100000016),
+	('321 Peregrine St', 'MK41C9', 'Scarborough', 'Canada', 'Guest House', 43.6908, -73.0159, 321, 100000017),
+	('77 Massachusetts Ave', 'D4C1T3', 'Cambridge', 'US', 'Apartment', 42.3601, -71.0942, 111, 100000018),
+	('79 Massachusetts Ave', 'D4C1S3', 'Cambridge', 'US', 'Apartment', 42.3831, -71.0913, 109, 100000019),
+	('81 Massachusetts Ave', 'D4C1K3', 'Cambridge', 'US', 'Apartment', 42.3901, -71.1942, 73, 100000023),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Delhi', 'India', 'Apartment', 19.2304, 72.5942, 84, 100000025),
+	('409 Harvard Blvd', 'D6C1T8', 'Cambridge', 'US', 'Apartment', 42.5301, -71.1922, 49, 100000026),
+	('1024 Harvard Blvd', 'D6C1T1', 'Cambridge', 'US', 'Apartment', 42.5401, -71.1912, 217, 100000027),
+	('102 Harvard Blvd', 'D7C1T2', 'Cambridge', 'US', 'Apartment', 42.5501, -71.1902, 256, 100000028),
+	('808 Main St E', 'C8C1T5', 'Cambridge', 'US', 'Apartment', 42.6701, -71.9192, 343, 100000029),
+	('123 Main St E', 'C8C9T5', 'Cambridge', 'US', 'Apartment', 42.6801, -71.9292, 343, 100000001),
+	('564 Main St E', 'E8C1T5', 'Cambridge', 'US', 'Apartment', 42.6901, -71.9492, 343, 100000002),
+	('902 Main St E', 'E8C4T5', 'Cambridge', 'US', 'Apartment', 42.6591, -71.9592, 343, 100000007),
+	('804 Main St E', 'E9C1T5', 'Cambridge', 'US', 'Apartment', 42.6601, -71.9392, 343, 100000003),
+	('1000 Main St E', 'D4C1T5', 'Cambridge', 'US', 'Apartment', 42.5601, -71.8992, 343, 100000005)
+;
+
+
+INSERT INTO Amenity(name)
+VALUES
+	('Wifi'),
+	('Washer'),
+	('Dryer'),
+	('TV'),
+	('Pool'),
+	('Security Cameras'),
+	('Pets Allowed'),
+	('Kitchen'),
+	('Garden View'),
+	('Beach View'),
+	('Dedicated Workspace')
+;
+
+INSERT INTO Offers(listingAddress, listingPostalCode, amenity)
+VALUES
+	('1265 Military Trail', 'M1C1A4', 'Wifi'),
+	('1265 Military Trail', 'M1C1A4', 'TV'),
+	('1265 Military Trail', 'M1C1A4', 'Washer'),
+	('1265 Military Trail', 'M1C1A4', 'Dryer'),
+	('1266 Military Trail', 'M1C1A5', 'Pets Allowed'),
+	('1266 Military Trail', 'M1C1A5', 'Security Cameras'),
+	('1266 Military Trail', 'M1C1A5', 'Pool'),
+	('1267 Military Trail', 'M1C1A6', 'Kitchen'),
+	('1267 Military Trail', 'M1C1A6', 'Garden View'),
+	('1267 Military Trail', 'M1C1A6', 'Wifi'),
+	('908 Military Trail', 'M2C1A5', 'Garden View'),
+	('808 Military Trail', 'M1D1A5', 'TV'),
+	('IIT Delhi Main Rd', 'A1B2C3', 'Beach View'),
+	('IIT Delhi Main Rd', 'A1B2C3', 'TV'),
+	('IIT Delhi Main Rd', 'A1B2C3', 'Wifi'),
+	('1597 Tremaine Rd', 'N1B1C3', 'Pets Allowed'),
+	('1598 Tremaine Rd', 'N1B3C3', 'Kitchen'),
+	('1599 Tremaine Rd', 'N2B5C3', 'Washer'),
+	('1599 Tremaine Rd', 'N2B5C3', 'Dryer'),
+	('901 LanceBorough Ave', 'MK41C3', 'Pool'),
+	('123 Pringle Ave', 'MK45C3', 'Pool'),
+	('321 Peregrine St', 'MK41C9', 'Pool'),
+	('77 Massachusetts Ave', 'D4C1T3', 'TV'),
+	('77 Massachusetts Ave', 'D4C1T3', 'Wifi'),
+	('77 Massachusetts Ave', 'D4C1T3', 'Washer'),
+	('77 Massachusetts Ave', 'D4C1T3', 'Dryer'),
+	('77 Massachusetts Ave', 'D4C1T3', 'Pool'),
+	('79 Massachusetts Ave', 'D4C1S3', 'Security Cameras'),
+	('81 Massachusetts Ave', 'D4C1K3', 'Pets Allowed'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Dedicated Workspace'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Security Cameras'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'TV'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Wifi'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Washer'),
+	('AWS Delhi Main Rd', 'R2D2S2', 'Dryer'),
+	('409 Harvard Blvd', 'D6C1T8', 'Garden View'),
+	('1024 Harvard Blvd', 'D6C1T1', 'Kitchen'),
+	('102 Harvard Blvd', 'D7C1T2', 'Wifi'),
+	('808 Main St E', 'C8C1T5', 'Pets Allowed'),
+	('123 Main St E', 'C8C9T5', 'Security Cameras'),
+	('564 Main St E', 'E8C1T5', 'Kitchen'),
+	('902 Main St E', 'E8C4T5', 'Dedicated Workspace'),
+	('804 Main St E', 'E9C1T5', 'Washer'),
+	('804 Main St E', 'E9C1T5', 'Dryer'),
+	('1000 Main St E', 'D4C1T5', 'Wifi'),
+	('1000 Main St E', 'D4C1T5', 'Washer'),
+	('1000 Main St E', 'D4C1T5', 'Dryer'),
+	('1000 Main St E', 'D4C1T5', 'TV'),
+	('1000 Main St E', 'D4C1T5', 'Pool'),
+	('1000 Main St E', 'D4C1T5', 'Security Cameras'),
+	('1000 Main St E', 'D4C1T5', 'Pets Allowed'),
+	('1000 Main St E', 'D4C1T5', 'Kitchen'),
+	('1000 Main St E', 'D4C1T5', 'Garden View'),
+	('1000 Main St E', 'D4C1T5', 'Dedicated Workspace')
+;
+
+INSERT INTO DateRange(startDate, endDate)
+VALUES
+	('2022-01-01', '2022-02-01'),
+	('2022-02-02', '2022-03-02'),
+	('2022-03-03', '2022-04-04'),
+	('2022-01-06', '2022-02-06'),
+	('2022-02-07', '2022-03-07'),
+	('2022-03-08', '2022-04-08'),
+	('2022-01-11', '2022-02-11'),
+	('2022-02-12', '2022-03-12'),
+	('2022-03-13', '2022-04-13'),
+	('2022-01-16', '2022-02-16'),
+	('2022-02-17', '2022-03-17'),
+	('2022-03-18', '2022-04-18'),
+	('2022-01-21', '2022-02-21'),
+	('2022-02-22', '2022-03-22'),
+	('2022-03-23', '2022-04-23'),
+	('2022-05-23', '2022-06-23')
+;
+
+INSERT INTO Reservation(renterSIN, listingAddress, listingPostalCode, payment, checkIn, checkOut, isCancelled, totalPrice)
+VALUES
+	(100000000,'1265 Military Trail', 'M1C1A4', '1234567890123-123-0425', '2022-01-01', '2022-02-01', 0, 1550),
+	(100000000,'1267 Military Trail', 'M1C1A6', '1234578670123-103-0724', '2022-02-02', '2022-03-02', 0, 336),
+	(100000000,'1000 Main St E', 'D4C1T5', '78945678990123-173-1225', '2022-03-03', '2022-04-04', 0, 10633),
+	(100000002,'1000 Main St E', 'D4C1T5', '12345607690123-0138-0325', '2022-01-01', '2022-02-01', 1, 1550),
+	(100000004,'1000 Main St E', 'D4C1T5', '12345678904567-129-0327', '2022-02-02', '2022-03-02', 0, 1550),
+	(100000006,'1000 Main St E', 'D4C1T5', '12345678901231-123-0425', '2022-05-23', '2022-06-23', 0, 1550),
+	(100000008,'1265 Military Trail', 'M1C1A4', '1234567890123-123-0425', '2022-02-02', '2022-03-02', 0, 1550),
+	(100000010,'1265 Military Trail', 'M1C1A4', '1234567890123-123-0425', '2022-03-03', '2022-04-04', 0, 1550),
+	(100000012,'1265 Military Trail', 'M1C1A4', '1234567890123-123-0425', '2022-05-23', '2022-06-23', 0, 1550),
+	(100000014,'77 Massachusetts Ave', 'D4C1T3', '1234567890123-123-0425', '2022-03-13', '2022-04-13', 1, 1550),
+	(100000020,'77 Massachusetts Ave', 'D4C1T3', '1234567890123-123-0425', '2022-02-07', '2022-03-07', 0, 1550),
+	(100000022,'AWS Delhi Main Rd', 'R2D2S2', '1234567890123-123-0425', '2022-01-01', '2022-02-01', 0, 1550),
+	(100000007,'AWS Delhi Main Rd', 'R2D2S2', '1234567890123-123-0425', '2022-02-02', '2022-03-02', 1, 1550),
+	(100000011,'AWS Delhi Main Rd', 'R2D2S2', '1234567890123-123-0425', '2022-03-18', '2022-04-18', 0, 1550),
+	(100000004,'IIT Delhi Main Rd', 'A1B2C3', '1234567890123-123-0425', '2022-01-01', '2022-02-01', 0, 1550)
+;
+
+INSERT INTO Unavailability(listingAddress, listingPostalCode, startDate, endDate)
+VALUES
+	('1265 Military Trail', 'M1C1A4', '2022-01-01', '2022-02-01'),
+	('1265 Military Trail', 'M1C1A4', '2022-02-02', '2022-03-02'),
+	('1265 Military Trail', 'M1C1A4', '2022-03-03', '2022-04-04'),
+	('1265 Military Trail', 'M1C1A4', '2022-05-23', '2022-06-23'),
+	('1267 Military Trail', 'M1C1A6', '2022-01-01', '2022-02-01'),
+	('1000 Main St E', 'D4C1T5', '2022-03-03', '2022-04-04'),
+	('1000 Main St E', 'D4C1T5', '2022-02-02', '2022-03-02'),
+	('1000 Main St E', 'D4C1T5', '2022-05-23', '2022-06-23'),
+	('77 Massachusetts Ave', 'D4C1T3', '2022-02-07', '2022-03-07'),
+	('AWS Delhi Main Rd', 'R2D2S2', '2022-01-01', '2022-02-01'),
+	('AWS Delhi Main Rd', 'R2D2S2', '2022-03-18', '2022-04-18'),
+	('IIT Delhi Main Rd', 'A1B2C3', '2022-01-01', '2022-02-01')
+;
+
+INSERT INTO ListingReview(renterSIN, listingAddress, listingPostalCode, comment, rating)
+VALUES
+	(100000000, '1265 Military Trail', 'M1C1A4', 'The host was very hospitable and the listing offered everything I could ask for, a washing machine and dryer, a tv and wifi', 3.4),
+	(100000008, '1265 Military Trail', 'M1C1A4', 'The host was very hospitable and always and friendly', 4.2),
+	(100000010, '1265 Military Trail', 'M1C1A4', 'The location certainly was not the best but i still enjoyed my time. The host was very hospitable', 2.8),
+	(100000022, 'AWS Delhi Main Rd', 'R2D2S2', 'The Host was very friendly, the locals were welcoming and I enjoyed every part of the stay', 4.8),
+	(100000007, 'AWS Delhi Main Rd', 'R2D2S2', 'I always felt very safe, the security cameras gave me a sense of relief and a feeling that I am being guarded', 4.2),
+	(100000011, 'AWS Delhi Main Rd', 'R2D2S2', 'The Host was very friendly and kind enough to offer his office to let me work whenever I needed', 5)
+;
+
+INSERT INTO RenterReview(hostSIN, renterSIN, comment, rating)
+VALUES
+	(100000001, 100000000, 'Wonderful guest, offered to cook me food sometimes, taught me about their culture and was overall fun to have around', 5),
+	(100000001, 100000008, 'Very Nice guest. Friendly, and did not make a mess unlike other guests', 4),
+	(100000001, 100000010, 'Terrible guest, I do not recommend letting him rent your place, he will destroy it.', 2),
+	(100000025, 100000022, 'Nice guest, left a bit of a mess before leaving but was nice for most of the stay', 3.4),
+	(100000025, 100000007, 'Amazing guest. One of the most down to earth people I have met. 10/10 would recommend having her as a guest', 5),
+	(100000025, 100000011, 'Very friendly guest. Let me try some of their countries sweets', 5)	
+;
