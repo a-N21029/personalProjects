@@ -1,0 +1,97 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    {{listing.item_name}}
+{% endblock %}
+
+{% block body %}
+    {% if listing.is_closed %}
+        <div class="alert alert-success" role="alert">
+           Congratulations to {{listing.auction_winner}} for winning the bid for {{listing.item_name}}
+        </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            Bidding ends on {{listing.deadline}}
+        </div>
+    {% endif %}
+    {% if listing.user != user %}
+        {% if not watchlisted %}
+            <form action="{% url 'item' listing.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="uid" value="{{user.id}}">
+                <input type="hidden" name="form_type" value="watchlist">
+                <input type="submit" class="btn btn-primary" value="Place on watchlist">
+            </form>
+        {% else %}
+            <form action="{% url 'watchlist' %}" name = "watchlist" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="listing" value="{{listing.id}}">
+                <input type="hidden" name="form_type" value="remove">
+                <input type="submit" class="btn btn-primary" value="Remove from watchlist">
+            </form>
+        {% endif %}
+    {% else %}
+        {% if num_bids > 0 and not listing.is_closed %}
+            <form action="{% url 'item' listing.id %}" name = "close" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="close">
+                <input type="submit" class="btn btn-primary" value="Close bidding">
+            </form>
+        {% endif %}
+    {% endif %}
+    <ul class="list-group" style="margin-top: 20px;"></ul>
+            <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;">
+                {% if listing.pic %}
+                    <img src="media/{{listing.pic.url}}" class="img-thumbnail" alt="{{ listing.item_name }}" width="200px">
+                {% else %}
+                    <img src="media/media/no_image.png" class="img-thumbnail" alt="{{ listing.item_name }}" width="200px">
+                {% endif %}
+                <div id="info">
+                    <h2>Item description</h2>
+                    <p>{{listing.item_description}}</p>
+                </div>
+                <span>
+                    <strong>Number of bids:</strong>
+                    <br>
+                    {% if num_bids > 0 %}
+                    <span class="badge bg-primary rounded-pill">{{num_bids}}</span>
+                    {% else %}
+                    <span class="badge bg-primary rounded-pill">{{num_bids}}</span>
+                    {% endif %}
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <strong>Highest bid: ${{listing.current_price}} {% if user == bid_user %} (your bid) {% endif %}</strong>
+                {% if listing.user != user %}
+                        <form action="{% url 'index' %}" name = "bid" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="listing" value="{{listing.id}}">
+                            <input type="hidden" name="form_type" value="bid">
+                            <input type="submit" class="btn btn-primary" value="Place bid">
+                        </form>
+                    </span>
+                {% endif %}
+            </li>
+    </ul>
+    <hr>
+    <h3>Comments</h3>
+    <div class="form-group" style="margin-bottom: 80px;">
+        <form action="{% url 'item' listing.id %}" method="post">
+            {% csrf_token %}
+            <label for="commentForm">{{num_comments}} comment(s)</label>
+            <textarea class="form-control" id="commentForm" rows="3" placeholder="Add a public comment" style="margin-bottom: 5px;" name="comment"></textarea>
+            <input type="hidden" name="uid" value="{{user.id}}">
+            <input type="hidden" name="form_type" value="comment">
+            <input type="submit" class="btn btn-primary" value="Comment">
+        </form>
+      </div>
+    {% for comment in comments %}
+      <div style="margin-bottom: 32px;">
+            <span>
+                <strong>{{comment.user}}</strong>
+                <span style="margin-left: 16px; color: grey; font-size: 10px;">{{comment.timestamp}}</span>
+            </span>
+            <p style="margin-top: 20px;">{{comment.comment}}</p>
+      </div>
+    {% endfor %}
+{% endblock %}

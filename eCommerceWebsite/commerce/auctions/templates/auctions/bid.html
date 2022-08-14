@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Make a bid for {{listing.item_name}}
+{% endblock %}
+
+{% block body %}
+    <h2>Place a bid</h2>
+    {% if not bid_is_valid %}
+        <div class="alert alert-warning" role="alert">
+            You have to bid an amount higher than ${{listing.current_price}} (current highest bid)
+        </div>
+    {% endif %}
+    <form action="{% url 'bid' listing.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="hidden" name="uid" value="{{user.id}}">
+            <input type="hidden" name="CP" value = "{{listing.current_price}}">
+            <input autofocus class="form-control" type="number" step="0.01" name="BA" placeholder="Enter amount you want to bid">
+            <input class="btn btn-primary" type="submit" value="Place bid">
+        </div>
+    </form>
+{% endblock %}

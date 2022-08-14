@@ -1,0 +1,55 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2 style="margin-bottom: 50px;">Active Listings</h2>
+
+    {% if user.is_authenticated %}
+        <ul class="list-group"></ul>
+            {% for listing in listings %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;">
+                        {% if listing.pic %}
+                            <img src="media/{{listing.pic.url}}" class="img-thumbnail" alt="{{ listing.item_name }}" width="200px">
+                        {% else %}
+                            <img src="media/media/no_image.png" class="img-thumbnail" alt="{{ listing.item_name }}" width="200px">
+                        {% endif %}
+                        <div id="info" style="text-align: right;">
+                            <h4>Listing: {{ listing.item_name }}</h4>
+                            <p>Starting Price: ${{ listing.starting_price}}</p>
+                            <p>Current Price: ${{ listing.current_price}}</p>
+                            <strong>Bidding ends on {{listing.deadline}}</strong>
+                            <p style="color: grey; font-size: 10px;">Created by {{listing.user}} at {{listing.create_timestamp}}</p>
+                        </div>
+                        <span>
+                            <strong>Categories:</strong>
+                            {% for category in listing.categs %}
+                                <p>{{category}}</p>
+                            {% empty %}
+                                <p>None</p>
+                            {% endfor %}
+                        </span>
+                        <span>
+                            <form action="{% url 'index' %}" name="visit" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="listing" value="{{listing.id}}">
+                                <input type="hidden" name="form_type" value="visit">
+                                <input type="submit" class="btn btn-primary" value="Visit Page" style="margin-bottom: 10px;">
+                            </form>
+                        {% if listing.user != user %}
+                                <form action="{% url 'index' %}" name = "bid" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="listing" value="{{listing.id}}">
+                                    <input type="hidden" name="form_type" value="bid">
+                                    <input type="submit" class="btn btn-primary" value="Place bid">
+                                </form>
+                            </span>
+                        {% endif %}
+                    </li>
+            {% empty %}
+                <h4>No auctions have been made yet...</h4>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <span><a href="{%url 'login' %}">Sign in</a> to view your auction listings.</span>
+    {% endif %}
+{% endblock %}
