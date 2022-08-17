@@ -1,3 +1,7 @@
+# Quick Note: 
+This directory is missing the .node_modules file since it was too big to commit. To get the file, run the command `npx create-next-app <app-name>` and copy over the files from the directory
+...
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
